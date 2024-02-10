@@ -1,9 +1,15 @@
 
-## toggl.com task
+# toggl.com task
 
-This project uses the go 1.18 since it's the latest version as of 
+## Version
+This project uses the go 1.21, this is the latest version as of Feb 7th, 2024.
 
-Timeline & Plans (How the time was used):
+```bash
+$ go version
+go version go1.21.6 darwin/arm64
+```
+
+## Timeline & Plans (How the time was used):
 - Revised GoLang
 - Got a look on card games, I don't play such games (used to play anime card games only), so no clue about what's common between such games (still no clue)
 - Spent sometime reading GoLang current (2024) conventions in:
@@ -13,10 +19,9 @@ Timeline & Plans (How the time was used):
   - Think of a good directory structure that tells what it does without opening the files, eventually used a custom MVC
   - Search for a linter for go, to mention its importance (Even though I'm not going to use it for the sake of the demo)
 
-Conventions used:
+
+## Notes:
 - Some FIXME are put where improvements can happen
-
-
 - MVC was used as a pattern, models are in the models directory, models DO NOT interact with the DB, they are just models,
 all the DB access happens in controllers only.
 - Controllers are function of `gin.context` which is the request wrapper.
@@ -24,8 +29,6 @@ all the DB access happens in controllers only.
 - logging includes a logger in the awesome `zap` go library
 - common has the shared stuff like error codes, utility functions, some consts used across the project
 - The project configuration is in .env
-
-Notes:
 - Each function that does any query have the expected query count in comments, this is not tested, but should be
 
 ## Run the project
@@ -44,7 +47,7 @@ Notes:
 ```
 
 ## Docs 
-- Open [swagger editor](https://editor.swagger.io/) and paste swagger.yaml to view
+- Open [swagger editor](https://editor.swagger.io/) and paste swagger.yaml to view, this uses the old swagger V2 because their online editor uses it by default. 
 
 ## Testing
 
@@ -58,5 +61,8 @@ Also, I did write a few tests to show a demo of how I write tests, feel free to 
 
 ## Disclaimer: 
 1. This has things that are out of scope of the task required, I have made much more, it's fine for me, I used the task to revise Golang.
-2. Anything missing is intentionally ignored, I didn't want to make it more late than this
-3. I revised lots of code in the last few days and I'm not sure if I'm following the best practises since I haven't worked with go for the last 1.5y.
+2. I revised lots of code in the last few days and I'm not sure if I'm following the best practises since I haven't worked with go for the last 1.5y.
+3. I would appreciate constructive feedback in case of declination.
+
+## Thanks!
+I would like to thank you for the task, I did really want to revise GoLang but I didn't have the time, the interest in toggl forced me to put time for it.
