@@ -26,8 +26,7 @@ all the DB access happens in controllers only.
 - The project configuration is in .env
 
 Notes:
-- Each function that does any query have the expected query count in comments, this is tested
-- 
+- Each function that does any query have the expected query count in comments, this is not tested, but should be
 
 ## Run the project
 - CD into the project
