@@ -26,7 +26,7 @@ all the DB access happens in controllers only.
 - Services are basically helpers for models or external APIs if needed.
 - logging includes a logger in the awesome `zap` go library
 - common has the shared stuff like error codes, utility functions, some consts used across the project
-- The project configuration is in .env()
+- The project configuration is in .env
 
 Notes:
 - Each function that does any query have the expected query count in comments, this is tested
