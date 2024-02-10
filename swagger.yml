@@ -1,0 +1,152 @@
+swagger: '2.0'
+info:
+  title: togglDecks
+  version: v0.0.0
+host: localhost:8000
+schemes:
+  - http
+basePath: /
+paths:
+  /decks:
+    post:
+      summary: Create deck
+      description: Create a new deck, with 52 cards
+      operationId: de217f7a-838f-441f-b4fd-32952d5e7c71
+      consumes:
+        - application/json
+      parameters:
+        - type: string
+          default: AS,KD,AC,2C,KH
+          name: cards
+          required: false
+          in: query
+        - type: string
+          default: 'true'
+          name: shuffle
+          required: false
+          in: query
+        - required: false
+          schema:
+            type: string
+            default: '{"name":"Gojo Satoru"}'
+          in: body
+          name: body
+      responses:
+        '201':
+          description: successfully created deck
+          schema:
+            $ref: '#/definitions/Deck'
+        '422':
+          description: failed to create deck due to validation error
+          schema:
+            $ref: '#/definitions/Error'
+    get:
+      summary: Get available decks
+      description: Gets a list of avilable deck objects
+      operationId: 4e3e3bdd-50c8-42ff-9468-8df5b927f888
+      consumes:
+        - application/json
+      parameters:
+        - required: false
+          schema:
+            type: string
+            default: '{"name":"Seto kaiba"}'
+          in: body
+          name: body
+      responses:
+        '200':
+          description: Request OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Deck'
+    put:
+      summary: Draw cards
+      description: Draw cards from deck, the cards are drawn from the end of the deck
+      operationId: f2aa9892-7884-4abf-b5f9-6aab5e2d64a9
+      consumes:
+        - application/json
+      parameters:
+        - type: string
+          default: 1
+          name: count
+          required: false
+          in: query
+      responses:
+        200:
+          description: Cards drawn successfully
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DeckCard'
+
+        400:
+          description: Couldn't draw cards
+          schema:
+            $ref: '#/definitions/Error'
+        404:
+          description: Deck with id specified was not found
+          schema:
+            $ref: '#/definitions/Error'
+
+  /decks/:id:
+    get:
+      summary: Open deck
+      description: Get a specific deck by
+      operationId: fad67385-fda2-4fff-a876-192b68bb6dee
+      responses:
+        200:
+          description: no response description was provided for this operation
+          schema:
+            $ref: '#/definitions/Deck'
+  /ping:
+    get:
+      summary: Health check
+      description: ''
+      operationId: d54119db-8a7c-47df-b2fd-a77af8a778fd
+      responses:
+        200:
+          description: service is fully functioning
+        default:
+          description: service is experiencing an outage
+
+tags: []
+
+definitions:
+  Error:
+    readOnly: true
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+      metadata:
+        type: object
+  DeckCard:
+    properties:
+      id:
+        type: string
+        readOnly: true
+      deck_id:
+        type: string
+      order:
+        type: number
+      suit:
+        type: string
+        enum: [Spades, Diamonds, Clubs, Hearts]
+      rank:
+        type: string
+        enum: [Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King]
+  Deck:
+    properties:
+      id:
+        type: string
+        readOnly: true
+      cards:
+        type: array
+        items:
+          $ref: '#/definitions/DeckCard'
+      
+      shuffled:
+        type: boolean
+        default: false
