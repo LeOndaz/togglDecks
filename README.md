@@ -13,9 +13,6 @@ Timeline & Plans (How the time was used):
   - Think of a good directory structure that tells what it does without opening the files, eventually used a custom MVC
   - Search for a linter for go, to mention its importance (Even though I'm not going to use it for the sake of the demo)
 
-Disclaimer:
-- I revised lots of code in the last few days and I'm not sure if I'm following the best practises since I haven't worked with go for the last 1.5y.
-
 Conventions used:
 - Some FIXME are put where improvements can happen
 
@@ -49,6 +46,7 @@ Notes:
 - Open [swagger editor](https://editor.swagger.io/) and paste swagger.yaml to view
 
 
-Disclaimer: 
-1. This is out of scope of the task required, I have made much more, it's fine for me, I used the task to revise Golang.
+## Disclaimer: 
+1. This has things that are out of scope of the task required, I have made much more, it's fine for me, I used the task to revise Golang.
 2. Anything missing is intentionally ignored, I didn't want to make it more late than this
+3. I revised lots of code in the last few days and I'm not sure if I'm following the best practises since I haven't worked with go for the last 1.5y.
