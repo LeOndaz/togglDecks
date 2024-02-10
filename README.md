@@ -30,7 +30,9 @@ Notes:
 - 
 
 ## Run the project
-- CD into the project and run `go run .`
+- CD into the project
+- `go install`
+-  `go run .`
 
 
 ## Endpoints as described by GIN in debug mode
@@ -44,6 +46,15 @@ Notes:
 
 ## Docs 
 - Open [swagger editor](https://editor.swagger.io/) and paste swagger.yaml to view
+
+## Testing
+
+Run `go test ./...`
+
+Opinion: I found testing in go easy but lacks a good test suite, for example, In Python we have Pytest, in JS/TS we have Jest (and others), both handle everything, I didn't find a mature way to share fixtures
+between ALL tests in the project, only per-package which is `TestMain(m *testing.M)` and it cann't be in the root (main) package. I think Go will benefit from a test-suit that handles everything. There's a way I could think of (using Reflection) that can do this, but since this is super out of scope, I intentionally ignored it.
+
+Also, I did write a few tests to show a demo of how I write tests, feel free to tell me how to improve them, but also, I could think of way more tests but let's leave 'em for the intervew :)
 
 
 ## Disclaimer: 
